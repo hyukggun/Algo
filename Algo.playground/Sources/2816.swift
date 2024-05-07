@@ -3,6 +3,18 @@ import Foundation
 /*
  https://logh.tistory.com/12
  블로그 풀이 기록
+ // Example of Solution 2816
+ var head = ListNode.array(from: [9,1,9,5,0,5,1,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9])
+ var newHead = Solution2816.doubleIt(head)
+
+ var ans: [Int] = []
+ while newHead != nil {
+     ans.append(newHead!.val)
+     newHead = newHead?.next
+ }
+
+ print("ans : ", ans)
+
  */
 public class ListNode {
     public var val: Int
