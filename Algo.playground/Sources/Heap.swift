@@ -5,13 +5,25 @@ public struct Heap<Element> {
     public var compareFunc: (Element, Element) -> Bool
     public var count: Int { container.count }
     
+    var isEmpty: Bool { container.isEmpty }
+    
     public init(container: [Element], compareFunc: @escaping (Element, Element) -> Bool) {
         self.container = container
         self.compareFunc = compareFunc
     }
     
-    public mutating func makeHeap() {
+    public init(compareFunc: @escaping (Element, Element) -> Bool) {
+        self.container = []
+        self.compareFunc = compareFunc
+    }
+    
+    public mutating func heapify() {
         guard count > 1 else { return }
+        /*
+        (count - 2) / 2 인 이유
+        마지막 노드는 count - 1
+        (count - 1 - 1) / 2 는 부모 노드를 나타냄
+         */
         for i in stride(from: (count - 2) / 2, through: 0, by: -1) {
             heapifyDown(from: i)
         }
